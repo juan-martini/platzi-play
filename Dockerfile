@@ -1,6 +1,6 @@
 # Step 1: Build con Grandle 9.2.1 y JDK 21 (compilacion)
 FROM gradle:9.2.1-jdk21 as build
-COPY --chowm=gradle:gradle . /app
+COPY --chown=gradle:gradle . /app
 WORKDIR /app
 RUN gradle bootJar --no-daemon
 
