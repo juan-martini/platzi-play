@@ -1,0 +1,19 @@
+services:
+  mssql-server-db:
+    image: 'mcr.microsoft.com/mssql/server:2022-latest'
+    container_name: sqlserver_container
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: "4dm1n1str4d0r"
+      # Optional: specify the SQL Server edition (Developer, Express, Standard, Enterprise)
+      # MSSQL_PID: Developer
+    ports:
+      - '1433:1433'
+    volumes:
+      # This named volume persists your data even if the container is removed
+      - sqlserver_data:/data/mssql
+      # Optional: map host directories for backups and logs
+      # - ./data/backups:/var/opt/mssql/backups
+      # - ./data/logs:/var/opt/mssql/log
+volumes:
+  sqlserver_data:
