@@ -10,4 +10,4 @@ WORKDIR /app
 COPY --from=build /app/build/libs/*.jar platzi_play.jar
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "jar", "platzi_play.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "platzi_play.jar"]
